@@ -1,53 +1,123 @@
+/* MAIN CONTAINER */
 .carousel-container-inner {
   position: relative;
   width: 100%;
   overflow: hidden;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
+/* TRACK (SLIDES WRAPPER) */
 .carousel-track {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
   width: 100%;
 }
 
+/* EACH SLIDE */
 .carousel-slide {
   min-width: 100%;
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
+/* IMAGE */
 .carousel-slide picture img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease;
 }
 
+.carousel-slide picture img:hover {
+  transform: scale(1.03);
+}
+
+/* TEXT TITLE */
+.carousel-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* TEXT DESCRIPTION */
+.carousel-desc {
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* BUTTONS */
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.45);
   color: white;
   border: none;
-  padding: 12px 18px;
+  padding: 14px 20px;
   cursor: pointer;
-  border-radius: 5px;
-  font-size: 24px;
+  border-radius: 10px;
+  font-size: 26px;
   z-index: 10;
-}
-
-.prev-btn {
-  left: 10px;
-}
-
-.next-btn {
-  right: 10px;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.12);
+}
+
+.prev-btn {
+  left: 15px;
+}
+
+.next-btn {
+  right: 15px;
+}
+
+/* DOT INDICATORS */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.carousel-dot.active {
+  background: #333;
+  transform: scale(1.2);
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
