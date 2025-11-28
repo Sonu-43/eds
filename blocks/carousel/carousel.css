@@ -1,4 +1,4 @@
-/* MAIN CONTAINER */
+/* MAIN WRAPPER */
 .carousel-container-inner {
   position: relative;
   width: 100%;
@@ -6,56 +6,73 @@
   border-radius: 18px;
   background: #ffffff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 20px 0;
 }
 
-/* TRACK (SLIDES WRAPPER) */
+/* SLIDE TRACK */
 .carousel-track {
   display: flex;
-  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.6s ease-in-out;
   width: 100%;
 }
 
 /* EACH SLIDE */
 .carousel-slide {
   min-width: 100%;
-  padding: 30px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  justify-content: center;
   align-items: center;
-  animation: fadeIn 0.8s ease-in-out;
+  /* ⭐ FIX: CENTER ITEMS */
+  justify-content: center;
+  /* ⭐ FIX */
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+  /* ⭐ FIX: TEXT CENTER */
+  animation: fadeIn 0.6s ease;
 }
 
-/* IMAGE */
+/* IMAGE AREA */
+.carousel-slide picture {
+  width: 100%;
+  max-width: 650px;
+  /* ⭐ FIX: IMAGE SIZE CONTROL */
+}
+
 .carousel-slide picture img {
   width: 100%;
+  height: 380px;
+  /* ⭐ FIXED HEIGHT FOR UNIFORM SLIDES */
   border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-  transition: transform 0.4s ease;
+  /* ⭐ PREVENT STRETCHING */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.4s ease;
 }
 
 .carousel-slide picture img:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
+  /* smoother */
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
 }
 
-/* TEXT TITLE */
+/* TITLE */
 .carousel-title {
-  font-size: 28px;
+  font-size: 30px;
+  /* more premium */
   font-weight: 700;
   color: #222;
+  margin-top: 10px;
   text-align: center;
-  margin-top: 12px;
 }
 
-/* TEXT DESCRIPTION */
+/* DESCRIPTION */
 .carousel-desc {
   font-size: 18px;
+  line-height: 1.7;
+  max-width: 650px;
   color: #555;
   text-align: center;
-  line-height: 1.6;
-  max-width: 600px;
 }
 
 /* BUTTONS */
@@ -87,11 +104,11 @@
   right: 15px;
 }
 
-/* DOT INDICATORS */
+/* DOTS */
 .carousel-dots {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 15px;
   gap: 10px;
 }
 
@@ -101,19 +118,19 @@
   background: #bbb;
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.25s ease;
 }
 
 .carousel-dot.active {
   background: #333;
-  transform: scale(1.2);
+  transform: scale(1.25);
 }
 
 /* FADE ANIMATION */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(10px);
   }
 
   to {
