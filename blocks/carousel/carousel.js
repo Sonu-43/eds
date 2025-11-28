@@ -1,7 +1,15 @@
 import { createOptimizedPicture } from "../../scripts/aem.js";
 
 export default function decorate(block) {
-  const slides = [...block.children];
+  let slides = [...block.children];
+
+  // ❌ Remove >> and << rows (they break the block)
+  slides = slides.filter((row) => {
+    return (
+      !row.textContent.trim().includes(">>") &&
+      !row.textContent.trim().includes("<<")
+    );
+  });
 
   // Create main carousel container
   const carousel = document.createElement("div");
@@ -11,12 +19,11 @@ export default function decorate(block) {
   const track = document.createElement("div");
   track.classList.add("carousel-track");
 
-  // Convert rows into slide divs
-  slides.forEach((row, index) => {
+  // Build slides
+  slides.forEach((row) => {
     const slide = document.createElement("div");
     slide.classList.add("carousel-slide");
 
-    // Move row content into slide
     while (row.firstElementChild) {
       slide.append(row.firstElementChild);
     }
@@ -33,10 +40,9 @@ export default function decorate(block) {
     track.append(slide);
   });
 
-  // Add track into carousel
   carousel.append(track);
 
-  // Add navigation buttons
+  // Buttons
   const prevBtn = document.createElement("button");
   prevBtn.className = "carousel-btn prev-btn";
   prevBtn.innerHTML = "&#10094;";
@@ -46,24 +52,23 @@ export default function decorate(block) {
   nextBtn.innerHTML = "&#10095;";
 
   carousel.append(prevBtn, nextBtn);
-
-  // Replace block with new structure
   block.replaceChildren(carousel);
 
-  // JS Slide Logic
+  // Sliding Logic
   let index = 0;
+  const total = slides.length;
 
   function updateSlide() {
     track.style.transform = `translateX(-${index * 100}%)`;
   }
 
   nextBtn.addEventListener("click", () => {
-    if (index < slides.length - 1) index++;
+    index = (index + 1) % total;
     updateSlide();
   });
 
   prevBtn.addEventListener("click", () => {
-    if (index > 0) index--;
+    index = (index - 1 + total) % total;
     updateSlide();
   });
 }
