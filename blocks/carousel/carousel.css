@@ -1,72 +1,83 @@
-/* MAIN WRAPPER */
+/* ============================
+   MAIN CAROUSEL WRAPPER
+   ============================ */
 .carousel-container-inner {
   position: relative;
-  width: 100%;
+  width: 90%;
+  max-width: 900px;
+  /* ⭐ EXACT LIKE YOUTUBE */
+  margin: 40px auto;
+  /* ⭐ CENTER */
   overflow: hidden;
   border-radius: 18px;
   background: #ffffff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  padding: 20px 0;
+  padding: 40px 0;
 }
 
-/* SLIDE TRACK */
+
+/* ============================
+   SLIDE TRACK (HORIZONTAL)
+   ============================ */
 .carousel-track {
   display: flex;
   transition: transform 0.6s ease-in-out;
   width: 100%;
 }
 
-/* EACH SLIDE */
+
+/* ============================
+   EACH SLIDE
+   ============================ */
 .carousel-slide {
   min-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* ⭐ FIX: CENTER ITEMS */
   justify-content: center;
-  /* ⭐ FIX */
   gap: 20px;
   padding: 20px;
   text-align: center;
-  /* ⭐ FIX: TEXT CENTER */
   animation: fadeIn 0.6s ease;
 }
 
-/* IMAGE AREA */
+
+/* ============================
+   IMAGE AREA
+   ============================ */
 .carousel-slide picture {
   width: 100%;
-  max-width: 650px;
-  /* ⭐ FIX: IMAGE SIZE CONTROL */
+  max-width: 750px;
+  /* ⭐ PERFECT WIDTH */
 }
 
 .carousel-slide picture img {
   width: 100%;
-  height: 380px;
-  /* ⭐ FIXED HEIGHT FOR UNIFORM SLIDES */
-  border-radius: 16px;
+  height: 350px;
+  /* ⭐ FIXED LIKE DEMO */
   object-fit: cover;
-  /* ⭐ PREVENT STRETCHING */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
   transition: transform 0.5s ease, box-shadow 0.4s ease;
 }
 
 .carousel-slide picture img:hover {
   transform: scale(1.05);
-  /* smoother */
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.32);
 }
 
-/* TITLE */
+
+/* ============================
+   TITLE & DESCRIPTION
+   ============================ */
 .carousel-title {
   font-size: 30px;
-  /* more premium */
   font-weight: 700;
   color: #222;
   margin-top: 10px;
   text-align: center;
 }
 
-/* DESCRIPTION */
 .carousel-desc {
   font-size: 18px;
   line-height: 1.7;
@@ -75,7 +86,10 @@
   text-align: center;
 }
 
-/* BUTTONS */
+
+/* ============================
+   BUTTONS
+   ============================ */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -92,23 +106,28 @@
 }
 
 .carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   transform: translateY(-50%) scale(1.12);
 }
 
 .prev-btn {
-  left: 15px;
+  left: -10px;
+  /* ⭐ CLEAN AND CENTERED */
 }
 
 .next-btn {
-  right: 15px;
+  right: -10px;
+  /* ⭐ CLEAN AND CENTERED */
 }
 
-/* DOTS */
+
+/* ============================
+   DOTS
+   ============================ */
 .carousel-dots {
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 20px;
   gap: 10px;
 }
 
@@ -126,7 +145,10 @@
   transform: scale(1.25);
 }
 
-/* FADE ANIMATION */
+
+/* ============================
+   ANIMATION
+   ============================ */
 @keyframes fadeIn {
   from {
     opacity: 0;
