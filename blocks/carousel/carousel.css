@@ -1,60 +1,49 @@
-/* ============================
-   MAIN CAROUSEL WRAPPER
-   ============================ */
+/* MAIN CONTAINER */
 .carousel-container-inner {
   position: relative;
   width: 90%;
   max-width: 900px;
-  /* ⭐ EXACT LIKE YOUTUBE */
   margin: 40px auto;
-  /* ⭐ CENTER */
   overflow: hidden;
   border-radius: 18px;
   background: #ffffff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   padding: 40px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-/* ============================
-   SLIDE TRACK (HORIZONTAL)
-   ============================ */
+/* SLIDE TRACK */
 .carousel-track {
   display: flex;
   transition: transform 0.6s ease-in-out;
   width: 100%;
 }
 
-
-/* ============================
-   EACH SLIDE
-   ============================ */
+/* SLIDE */
 .carousel-slide {
   min-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
-  padding: 20px;
-  text-align: center;
-  animation: fadeIn 0.6s ease;
+  padding: 20px 0;
 }
 
-
-/* ============================
-   IMAGE AREA
-   ============================ */
+/* FIXED & EXACT IMAGE FRAME */
 .carousel-slide picture {
-  width: 100%;
-  max-width: 750px;
-  /* ⭐ PERFECT WIDTH */
+  width: 750px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-slide picture img {
   width: 100%;
-  height: 350px;
-  /* ⭐ FIXED LIKE DEMO */
+  height: 100%;
   object-fit: cover;
   border-radius: 18px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
@@ -66,15 +55,11 @@
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.32);
 }
 
-
-/* ============================
-   TITLE & DESCRIPTION
-   ============================ */
+/* TITLES */
 .carousel-title {
   font-size: 30px;
   font-weight: 700;
   color: #222;
-  margin-top: 10px;
   text-align: center;
 }
 
@@ -86,10 +71,7 @@
   text-align: center;
 }
 
-
-/* ============================
-   BUTTONS
-   ============================ */
+/* BUTTONS – ALWAYS CENTERED */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -111,19 +93,14 @@
 }
 
 .prev-btn {
-  left: -10px;
-  /* ⭐ CLEAN AND CENTERED */
+  left: 20px;
 }
 
 .next-btn {
-  right: -10px;
-  /* ⭐ CLEAN AND CENTERED */
+  right: 20px;
 }
 
-
-/* ============================
-   DOTS
-   ============================ */
+/* DOTS */
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -136,27 +113,10 @@
   height: 12px;
   background: #bbb;
   border-radius: 50%;
-  cursor: pointer;
   transition: 0.25s ease;
 }
 
 .carousel-dot.active {
   background: #333;
   transform: scale(1.25);
-}
-
-
-/* ============================
-   ANIMATION
-   ============================ */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
